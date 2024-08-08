@@ -80,8 +80,10 @@ function App() {
     carouselRef.current && carouselRef.current.prevCardHandler();
   };
   return (
-    <div className="w-screen h-screen flex justify-center items-center fixed bg-voilet-50">
-      <button
+    <div
+      className="w-screen h-screen flex justify-center items-center fixed bg-cover bg-center"
+      style={{ backgroundImage: `url('/2.svg')` }}>
+    <button
         onClick={handleNext}
         className="w-56 h-24 bg-red-500 "
       >
@@ -110,7 +112,7 @@ function App() {
       />
       <div className="w-[25%] h-[25%] absolute bottom-12 left-6 flex flex-col font-serif space-y-2">
         {data[selectedCardIdx].tags.map((tag) => (
-          <p className="text-5xl text-gray-900">&#x2022; {tag}</p>
+          <p className="text-5xl text-white">&#x2022; {tag}</p>
         ))}
       </div>
     </div>
