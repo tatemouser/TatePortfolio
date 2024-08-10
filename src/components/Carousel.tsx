@@ -167,7 +167,7 @@ export const Carousel = forwardRef<Ref, Props>(
     useEffect(() => {
       if (rotation) {
         controls.start({
-          rotateY: 360,
+          rotateY: -360,
           transition: {
             duration: rotationDuration,
             repeat: Infinity,
@@ -413,27 +413,15 @@ export const Carousel = forwardRef<Ref, Props>(
                   objectFit="cover"
                   className="rounded-lg"
                 /> */}
-                    <div className="content">
-                      <p className="description">{card.description}</p>
-                      {/* <Link
-                    href={
-                      onBlogs
-                        ? card.blogLink.url
-                          ? card.blogLink.url
-                          : `blogs/${card.slug}`
-                        : card.caseLink.url
-                        ? card.caseLink.url
-                        : `cases/${card.slug}`
-                    }
-                  >
-                </Link> */}
-                      <h3
-                        onClick={() => onTitleClickHandler(card)}
-                        className={"bigTitle"}
-                      >
-                        {card.title}
-                      </h3>
-                    </div>
+                  <div className="content">
+                    <button
+                      onClick={() => onTitleClickHandler(card)}
+                      className="learnMoreButton"
+                    >
+                      Read More
+                    </button>
+                  </div>
+                    {/* {card.title} */}
                   </m.div>
                 ))}
 

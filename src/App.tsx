@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import "./App.css";
 import { Carousel, FunctionsRefType } from "./components/Carousel";
+import CurvedText from "./components/CurvedText";
 
 function App() {
   const [selectedCardIdx, setSelectedCardIdx] = useState(0);
@@ -74,41 +75,48 @@ function App() {
   };
   return (
     <div className="w-screen h-screen flex flex-col justify-between items-center fixed bg-cover bg-center"
-     style={{ backgroundImage: `url('/1.svg')` }}>
+     style={{ backgroundImage: `url('/13.svg')` }}>
+      
+      <CurvedText 
+        text="Welcome to my home page, make yourself at home!"
+        link="https://github.com/tatemouser"
+      />
 
       <div className="w-[80%] h-auto flex flex-col items-center mt-6">
-        <h1 className="text-4xl text-white font-bold">{data[selectedCardIdx].title}</h1>
-        <p className="text-xl text-white mt-2">{data[selectedCardIdx].description}</p>
+        <h1 className="text-6xl text-black font-bold">{data[selectedCardIdx].title}</h1>
+        <p className="text-2xl text-black mt-2">{data[selectedCardIdx].description}</p>
       </div>
       
       <Carousel
         cardsData={data}
         setSelectedCardIdx={setSelectedCardIdx}
-        rotation={false}
-        rotationDuration={60}
+        rotation={true}
+        rotationDuration={100}
         tilt={false}
-        freeRoam={false}
-        freeRoamLowerBounds={-180}
-        freeRoamUpperBounds={0}
+        freeRoam={true}
+        freeRoamLowerBounds={-3}
+        freeRoamUpperBounds={3}
         onTitleClickHandler={onTitleClickHandler}
         startingAnimation={true}
         rotateOnScroll={true}
         drag={true}
         ref={carouselRef}
         />
-        <div className="flex space-x-4 mb-6">
-          <button
-            onClick={handlePrev}
-            className="w-56 h-24 bg-red-500 ">
-            Previous
-          </button>
+        
+      <div className="flex space-x-4 mb-8">
+      <button
+        onClick={handlePrev}
+        className="w-56 h-24 border-4 border-black text-black text-3xl font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:scale-105">
+        Previous
+      </button>
 
-          <button
-            onClick={handleNext}
-            className="w-56 h-24 bg-red-500 ">
-            Next
-          </button>
-        </div>
+      <button
+        onClick={handleNext}
+        className="w-56 h-24 border-4 border-black text-black text-3xl font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:scale-105">
+        Next
+      </button>
+
+      </div>
     </div>
   );
 }

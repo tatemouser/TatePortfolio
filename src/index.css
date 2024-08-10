@@ -6,6 +6,7 @@
   @apply h-screen w-screen text-black;
   overscroll-behavior-y: none;
 }
+
 .rootCarousel {
   transform-style: preserve-3d;
   perspective: 1300px;
@@ -31,15 +32,35 @@
 }
 
 .bigTitle {
-  @apply text-[1.2rem] lg:text-[1.7rem] 2xl:text-[2.6rem] 2xl:max-w-[18rem] max-w-[12rem] hover:underline transition-all  duration-300 cursor-pointer leading-7 min-[1500px]:leading-10;
-  text-decoration-color: #ffc2e2 !important;
+  @apply text-[1.2rem] lg:text-[1.7rem] 2xl:text-[2.6rem] leading-7 min-[1500px]:leading-10 text-white cursor-pointer hover:underline transition-all duration-300;
 }
+
 .content {
-  @apply px-8 flex flex-col gap-y-3 absolute bottom-[10%] lg:bottom-[10%] xl:bottom-[5%] 2xl:bottom-[10%] z-20 select-none;
+  @apply flex flex-col absolute bottom-0 left-0 right-0 z-20 select-none;
 }
+
 .description {
-  @apply 2xl:max-w-[18rem] max-w-[8.5rem] text-[9px] lg:max-w-[12rem] 2xl:text-lg xl:text-[11px];
+  @apply max-w-[8.5rem] lg:max-w-[12rem] 2xl:max-w-[18rem] text-[9px] xl:text-[11px] 2xl:text-lg;
 }
+
+.learnMoreButton {
+  @apply w-full bg-black text-white py-2 text-[14px] lg:text-[18px] 2xl:text-[24px] cursor-pointer hover:bg-opacity-80 transition-all duration-300;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.learnMoreButton::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0));
+}
+
 
 .dragContainer {
   position: relative;
@@ -104,3 +125,7 @@
     transparent
   );
 }
+
+
+
+
