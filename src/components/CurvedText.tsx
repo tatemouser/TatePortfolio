@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactCurvedText from 'react-curved-text';
 
 interface CurvedTextProps {
@@ -7,6 +7,16 @@ interface CurvedTextProps {
 }
 
 const CurvedText: React.FC<CurvedTextProps> = ({ text, link }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const imageOpacity = windowWidth < 1000 ? 0 : 1;
+
   return (
     <div style={{
       position: 'fixed',
@@ -27,7 +37,9 @@ const CurvedText: React.FC<CurvedTextProps> = ({ text, link }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        animation: 'spin-counterclockwise 30s linear infinite', // Counterclockwise spinning animation
+        animation: 'spin-counterclockwise 30s linear infinite',
+        opacity: imageOpacity,
+        transition: 'opacity 0.3s ease',
       }}>
         <ReactCurvedText
           width={200}
@@ -67,6 +79,8 @@ const CurvedText: React.FC<CurvedTextProps> = ({ text, link }) => {
             height: '90%',
             objectFit: 'contain',
             cursor: 'pointer',
+            opacity: imageOpacity,
+            transition: 'opacity 0.3s ease',
           }}
         />
       </a>
@@ -74,7 +88,7 @@ const CurvedText: React.FC<CurvedTextProps> = ({ text, link }) => {
         {`
         @keyframes spin-counterclockwise {
             0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); } /* Counterclockwise rotation */
+            100% { transform: rotate(-360deg); }
         }
         `}
       </style>
