@@ -1,9 +1,17 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useRef, useState } from "react";
 import "./App.css";
 import { Carousel, FunctionsRefType } from "./components/Carousel";
 import CurvedText from "./components/CurvedText";
+import AboutPage from './components/AboutPage'; 
+import PortfolioPage from './components/PortfolioPage'; 
+import SkillsPage from './components/SkillsPage'; 
+import ContactPage from './components/ContactPage'; 
+import OtherPage from './components/OtherPage'; 
+import SocialPage from './components/SocialPage'; 
+import CustomerPage from './components/CustomerPage'; 
 
-function App() {
+function HomePage() {
   const [selectedCardIdx, setSelectedCardIdx] = useState(0);
   const data = [
     {
@@ -118,6 +126,22 @@ function App() {
 
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/social" element={<SocialPage />} />
+        <Route path="/customer" element={<CustomerPage />} />
+      </Routes>
+    </Router>
   );
 }
 
