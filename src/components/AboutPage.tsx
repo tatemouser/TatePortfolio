@@ -3,7 +3,7 @@ import GlassCard from './GlassCard';
 
 const AboutPage: React.FC = () => {
   return (
-    <GlassCard backgroundImage="https://picsum.photos/id/1018/1000">
+    <GlassCard backgroundImage="./sky2.svg">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-6 text-gray-800">About Me</h1>
         <div className="mb-8">

@@ -140,6 +140,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/social" element={<SocialPage />} />
         <Route path="/customer" element={<CustomerPage />} />
+        <Route path="/other" element={<OtherPage />} />
       </Routes>
     </Router>
   );

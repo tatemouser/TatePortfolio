@@ -3,7 +3,7 @@ import GlassCard from './GlassCard';
 
 const SocialPage: React.FC = () => {
   return (
-    <GlassCard backgroundImage="https://picsum.photos/id/1018/1000">
+    <GlassCard backgroundImage="./sky2.svg">
       <div className="text-center">
         <h1 className="text-3xl font-bold mb-6">Connect with Me</h1>
         <p className="text-lg text-gray-700 mb-8">
