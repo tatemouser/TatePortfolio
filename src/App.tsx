@@ -11,6 +11,7 @@ import OtherPage from './components/OtherPage';
 import SocialPage from './components/SocialPage'; 
 import CustomerPage from './components/CustomerPage'; 
 
+
 function HomePage() {
   const [selectedCardIdx, setSelectedCardIdx] = useState(0);
   const data = [
