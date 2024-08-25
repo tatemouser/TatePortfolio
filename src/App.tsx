@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { useRef, useState } from "react";
 import "./App.css";
 import { Carousel, FunctionsRefType } from "./components/Carousel";
@@ -21,7 +21,7 @@ function HomePage() {
       description: "Past Work Experience",
       image:"/projects.svg",
       tags: ["Beach", "Relaxation", "Getaway"],
-      routeTo: "some url",
+      routeTo: "/portfolio",
     },
     {
       id: "2",
@@ -29,6 +29,7 @@ function HomePage() {
       description: "Expertise & Abilities",
       image:"/skills.svg",
       tags: ["City", "Exploration", "Vibrant"],
+      routeTo: "/skills",
     },
     {
       id: "3",
@@ -36,6 +37,7 @@ function HomePage() {
       description: "Get in Touch",
       image:"/contact.svg",
       tags: ["Mountains", "Adventure", "Hiking"],
+      routeTo: "/contact",
     },
     {
       id: "4",
@@ -43,6 +45,7 @@ function HomePage() {
       description: "Miscellaneous Information",
       image:"/other.svg",
       tags: ["Culture", "Traditions", "Immersion"],
+      routeTo: "/other",
     },
     {
       id: "5",
@@ -50,6 +53,7 @@ function HomePage() {
       description: "Stay Connected and Updated",
       image:"/social.svg",
       tags: ["Wildlife", "Safari", "Nature"],
+      routeTo: "/social",
     },
     {
       id: "6",
@@ -57,6 +61,7 @@ function HomePage() {
       description: "Services Offered",
       image:"/globeservices.svg",
       tags: ["Food", "Culinary", "Flavors"],
+      routeTo: "/customer",
     },
     {
       id: "7",
@@ -64,8 +69,11 @@ function HomePage() {
       description: "Computer Science Student",
       image:"/campus.svg",
       tags: ["Food", "Culinary", "Flavors"],
+      routeTo: "/about",
     },
   ];
+  const navigate = useNavigate();
+
   const onTitleClickHandler = (card: {
     id: string;
     title: string;
@@ -73,8 +81,11 @@ function HomePage() {
     image: string;
     routeTo?: string;
   }) => {
-    console.log("clicked", card);
+    if (card.routeTo) {
+      navigate(card.routeTo);
+    }
   };
+
   const carouselRef = useRef<FunctionsRefType>(null);
   const handleNext = () => {
     carouselRef.current && carouselRef.current.nextCardHandler();
