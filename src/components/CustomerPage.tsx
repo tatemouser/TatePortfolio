@@ -3,11 +3,11 @@ import GlassCard from './GlassCard';
 
 const CustomerPage: React.FC = () => {
   return (
-    <GlassCard backgroundImage="https://picsum.photos/id/1018/1000">
+    <GlassCard backgroundImage="./sky2.svg">
       <div>
-        <h1 className="text-3xl font-bold">Info Page</h1>
+        <h1 className="text-3xl font-bold">Coming Soon!</h1>
         <p className="mt-4 text-lg text-gray-700">
-          This is some information about our services.
+          Refer to contact page if you need assistance!
         </p>
       </div>
     </GlassCard>
